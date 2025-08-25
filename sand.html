@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iframe Sandbox Demo</title>
+</head>
+<body>
+  <h2>See how the <code>sandbox</code> attribute changes iframe behavior </h2>
+
+  <!-- 1. Normal iframe (no sandbox) -->
+  <h3>1. Normal iframe</h3>
+  <h4>No Sandbox (YouTube loads and plays normally)</h4>
+  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="560" height="315"></iframe>
+
+  <!-- 2. Fully sandboxed iframe -->
+  <h3>2. With Sandbox (fully restricted)</h3>
+  <h4>With Sandbox (Video is blocked because scripts are disabled)</h4>
+  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="560" height="315" sandbox></iframe>
+
+  <!-- 3. Sandbox with allow-scripts -->
+  <h3>3. Sandbox with allow-scripts</h3>
+  <h4>Sandbox + allow-scripts (Video plays, but still cannot access cookies or localStorage)</h4>
+  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="560" height="315" sandbox="allow-scripts"></iframe>
+
+  <!-- 4. Sandbox with allow-scripts and allow-same-origin -->
+  <h3>4. Sandbox with allow-scripts + allow-same-origin</h3>
+  <h4>Sandbox + allow-scripts + allow-same-origin (Video behaves almost like normal iframe)</h4>
+  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="560" height="315" sandbox="allow-scripts allow-same-origin"></iframe>
+
+  <!-- 5. Sandbox with allow-scripts + allow-same-origin (but still restricted by YouTube) -->
+  <h3>5. Sandbox with allow-scripts + allow-same-origin</h3>
+  <h4>Even with permissions, YouTube may block playback due to cross-origin restrictions</h4>
+  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="560" height="315" sandbox="allow-scripts allow-same-origin">
